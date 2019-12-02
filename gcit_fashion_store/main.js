@@ -31,10 +31,6 @@ const configureRoutes = require("./routes")
 
 configureRoutes(app);
 
-app.use(require('./controllers/bookController'));
-
-app.use(require('./controllers/authorController'));
-
 app.use(require('./controllers/productController'));
 
 app.use(require('./controllers/categoryController'));
