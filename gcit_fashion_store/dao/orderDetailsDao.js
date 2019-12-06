@@ -1,25 +1,27 @@
 var db = require('./db');
 
-exports.getOrderDetails= function(orderId,cb){
-    db.query('select * from orderDetails where orderId=?', [orderId] , function(err, result) {
-        cb(err, result);
-      });
+exports.getOrderDetails = function(orderId,cb){
+  db.query('select * from orderDetails where orderId=?', [orderId] , function(err, result) {
+      cb(err, result);
+    });
+    
 };
 
-exports.addOrderDetails = function(orderDetails , cb){
+exports.addOrderDetails = function(orderDetailsArray , cb){
     db.beginTransaction(function(err){
         if(err) cb(err, null);
-    
-        db.query('insert into orderDetails values(?,?,?,?,?)',[orderDetails.orderId,orderDetails.productId,orderDetails.unitPrice,orderDetails.quantity,orderDetails.taxes], function(err, result){
+        Array.prototype.forEach.call(orderDetailsArray,orderDetails => {
+        db.query('insert into orderDetails values(?,?,?,?,?)',[orderDetails.orderId,orderDetails.productId,orderDetails.price,orderDetails.quantity,orderDetails.taxes], function(err, result){
           if(err){
             db.rollback(function(err){
-              cb(err, result);
+              cb(err);
             });
           } 
           db.commit(function(err){
-            cb(err, result);
+            cb(err);
           });
         });
+      });
       });
 };
 

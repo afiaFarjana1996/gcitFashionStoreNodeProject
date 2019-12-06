@@ -2,11 +2,12 @@ var routes = require('express').Router();
 var orderDetailsDao = require('../dao/orderDetailsDao');
 
 routes.get('/orderDetails/:orderId',function(req,res){
-    orderDetailsDao.getOrderDetails(req.params.orderId,function(error, result){
-        if(error) throw error;
-        res.send(result);
-      });
-
+  orderDetailsDao.getOrderDetails(req.params.orderId,function(error, result){
+    if(error) throw error;
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200);
+    res.send(result);
+  });
 });
 
 routes.post('/orderDetails', function(req, res){

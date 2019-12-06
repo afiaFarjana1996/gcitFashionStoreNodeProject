@@ -1,4 +1,5 @@
 var routes = require('express').Router();
+
 var db = require('../dao/db');
 var customerDao = require('../dao/customerDao');
 

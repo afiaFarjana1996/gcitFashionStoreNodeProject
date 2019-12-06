@@ -1,6 +1,4 @@
 
-var CONFIG = require('./config')
-
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
@@ -39,6 +37,10 @@ app.use(require('./controllers/customerController'));
 
 app.use(require('./controllers/orderController'));
 
-app.listen(3000);
+app.use(require('./controllers/orderDetailsController'));
+
+app.use(require('./controllers/healthController'));
+
+module.exports = app.listen(3000);
 console.log('Server running in port: 3000 ...')
 

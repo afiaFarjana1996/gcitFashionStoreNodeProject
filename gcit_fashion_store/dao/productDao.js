@@ -15,8 +15,7 @@ exports.getProductByCategory = function(categoryId, cb){
 exports.addProduct = function(product , cb){
     db.beginTransaction(function(err){
         if(err) cb(err, null);
-    
-        db.query('insert into fashion_store.products(brand,name,categoryId,price,quantity) values(?,?,?,?,?)',[product.brand,product.name,product.categoryId,product.price,product.quantity], function(err, result){
+        db.query('insert into products(brand,name,categoryId,price,quantity) values(?,?,?,?,?)',[product.brand,product.name,product.categoryId,product.price,product.quantity], function(err, result){
           if(err){
             db.rollback(function(err){
               cb(err, result);

@@ -12,7 +12,7 @@ exports.addOrder = function(orders , cb){
     db.beginTransaction(function(err){
         if(err) cb(err, null);
     
-        db.query('insert into orders values(?,?,?,?,?)',[orders.orderId,orders.orderDate,orders.userId,orders.emploeeId,orders.creditCardId], function(err, result){
+        db.query('insert into orders(orderDate,userId,employeeId,creditCardId) values(?,?,?,?)',[orders.orderDate,orders.userId,orders.employeeId,orders.creditCardId], function(err, result){
           if(err){
             db.rollback(function(err){
               cb(err, result);

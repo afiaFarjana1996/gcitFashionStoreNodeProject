@@ -1,5 +1,4 @@
 var routes = require('express').Router();
-var date = require('date-and-time');
 var orderDao = require('../dao/orderDao');
 
 routes.get('/orders/:orderId',function(req,res){
@@ -12,7 +11,6 @@ routes.get('/orders/:orderId',function(req,res){
 
 routes.post('/orders', function(req, res){
   var order = req.body;
-  order.orderDate = date.format(new Date(),'YYYY/MM/DD');
   orderDao.addOrder(order, function(err, result){
     if(err){
       res.status(400);
