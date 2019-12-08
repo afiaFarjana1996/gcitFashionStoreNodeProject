@@ -21,6 +21,16 @@ exports.addOrderDetails = function(orderDetailsArray , cb){
             cb(err);
           });
         });
+        // .query('update products set quantity=? where productId=?',[orderDetails.quantity-1,orderDetails.productId],function(err, result){
+        //   if(err){
+        //     db.rollback(function(err){
+        //       cb(err);
+        //     });
+        //   } 
+        //   db.commit(function(err){
+        //     cb(err);
+        //   });
+        // });
       });
       });
 };
