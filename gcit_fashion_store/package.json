@@ -19,7 +19,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node main.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha --exit"
   },
   "author": "afia",
   "license": "ISC"
