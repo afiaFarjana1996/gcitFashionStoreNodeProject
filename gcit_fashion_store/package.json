@@ -19,7 +19,8 @@
   "devDependencies": {},
   "scripts": {
     "start": "node main.js",
-    "test": "mocha --exit"
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "afia",
   "license": "ISC"

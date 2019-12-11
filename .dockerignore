@@ -3,4 +3,5 @@
 **/dist
 **/package-lock.json
 .env
+Dockerfile*
 .DS_Store 

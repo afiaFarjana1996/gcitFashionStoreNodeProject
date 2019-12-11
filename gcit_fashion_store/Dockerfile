@@ -1,7 +1,7 @@
 FROM node:9-slim
 WORKDIR /gcitFashionStore
-COPY package.json ./gcit_fashion_store
+COPY package.json ./
 
 RUN npm install
-COPY . /gcitFashionStore
+COPY . ./
 CMD ["npm","start"]
