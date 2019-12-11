@@ -4,7 +4,7 @@ let CONFIG = {} //Make this global to use all over the application
 
 CONFIG.app          = process.env.APP
 CONFIG.port         = process.env.PORT || 3000
-process.env.NODE_ENV = 'DEV'
+
 if(process.env.NODE_ENV == 'TEST'){
   CONFIG.db_host      = '127.0.0.1'
   CONFIG.db_user      = 'root'
