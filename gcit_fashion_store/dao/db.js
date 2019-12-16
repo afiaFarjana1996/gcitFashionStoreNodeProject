@@ -6,6 +6,11 @@ var connection = mysql.createConnection({
     user     : CONFIG.db_user,
     password : CONFIG.db_password,
     database :  CONFIG.db_name
+
+    // host     : '127.0.0.1',
+    // user     : 'root',
+    // password : 'smoothstack',
+    // database :  'fashion_store'
    
 });
 

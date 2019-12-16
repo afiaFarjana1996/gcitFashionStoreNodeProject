@@ -2,8 +2,9 @@ var db = require('./db');
 
 
 exports.getOrders= function(orderId,cb){
-    db.query('select * from orders where orderId=?', [orderId] , function(err, result) {
-        cb(err, result);
+    
+    db.query('select * from orders where orderId=?', [orderId] , function(err, result) { 
+      cb(err, result);
       });
       
 };

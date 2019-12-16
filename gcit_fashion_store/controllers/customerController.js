@@ -24,6 +24,29 @@ routes.post('/customers', function(req, res){
 
 });
 
+routes.post('/customers/login',function(req,res){
+    var loginCredentials = req.body;
+    customerDao.loginCustomer(loginCredentials,function(err, result){
+      
+      if(err){
+         res.status(404);
+         res.send(result);
+      }
+      res.setHeader('Content-Type', 'application/json');
+      if(result == 'User Not Found'){
+        res.status(404);
+      }
+      else if(result == 'Wrong Credentials'){
+        res.status(404);
+      }
+      else{
+        res.status(200);
+      }
+      
+      res.send(result);
+    });
+});
+
 routes.put('/customers/:userId', function(req, res){
     var customer = req.body;
     customer.userId = req.params.userId;

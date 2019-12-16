@@ -1,7 +1,7 @@
 var db = require('./db');
 
 exports.getAllProducts = function(cb){
-    db.query('select * from fashion_store.products', function(err, result) {
+    db.query('select * from products', function(err, result) {
         cb(err, result);
       });
 };

@@ -10,6 +10,15 @@ routes.get('/orderDetails/:orderId',function(req,res){
   });
 });
 
+routes.get('/orderDetails',function(req,res){
+  orderDetailsDao.getMostRecentOrder(function(error, result){
+    if(error) throw error;
+    res.setHeader('Content-Type','application/json');
+    res.status(200);
+    res.send(result);
+  });
+});
+
 routes.post('/orderDetails', function(req, res){
   var order = req.body;
   orderDetailsDao.addOrderDetails(order, function(err, result){
