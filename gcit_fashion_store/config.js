@@ -15,6 +15,8 @@ CONFIG.db_name      = process.env.DB_NAME
 
 CONFIG.stripSecretKey = process.env.STRIPE_SECRET_KEY
 
+CONFIG.awsAccessKey = process.env.AWSAccessKeyId
+CONFIG.awsSecretKey = process.env.AWSSecretKey
 
 //CONFIG.jwt_encryption  = process.env.JWT_ENCRYPTION
 module.exports = CONFIG

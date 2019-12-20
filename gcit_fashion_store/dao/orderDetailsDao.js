@@ -27,6 +27,7 @@ exports.addOrderDetails = function(orderDetailsArray , cb){
             cb(err);
           });
         });
+        var quantity = orderDetails.quantity - orderDetails.orderedQuantity;
         db.query('update products set quantity=? where productId=?',[quantity,orderDetails.productId],function(err, result){
           if(err){
             db.rollback(function(err){
