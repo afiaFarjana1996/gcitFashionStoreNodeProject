@@ -9,22 +9,17 @@ exports.getCustomer = function(userId,cb){
 };
 
 exports.addCustomer = function(customer , cb){
-  console.log("hit dao method.");
     db.beginTransaction(function(err){
       
         if(err) cb(err, null);
         bcrypt.hash(customer.password, 10, function(err, hash) {
-          console.log("inside bcrypt.hash method");
         db.query('insert into customers(email,password,name,address,phone,registerDate,creditCardId) values(?,?,?,?,?,?,?)',[customer.email,hash,customer.name,customer.address,customer.phone,customer.registerDate,customer.creditCardId], function(err, result){
-          console.log("inside db query");
           if(err){
-            console.log("error: "+err);
             db.rollback(function(err){
               cb(err, result);
             });
           } 
           db.commit(function(err){
-            console.log("hit commit method.");
             cb(err, result);
           });
         });
@@ -41,9 +36,9 @@ exports.loginCustomer = function(loginCredential, cb){
      // var session = loginCredential.session;
      
      db.query('SELECT * FROM customers where email=?',[email],function(err,result){
+       
         if(err) {
           message = 'User Not Found';
-          console.log(error);
           cb(err,message);
           return;
         }

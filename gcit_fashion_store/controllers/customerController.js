@@ -1,5 +1,4 @@
 var routes = require('express').Router();
-
 var db = require('../dao/db');
 var customerDao = require('../dao/customerDao');
 
@@ -26,7 +25,7 @@ routes.post('/customers', function(req, res){
 
 routes.post('/customers/login',function(req,res){
     var loginCredentials = req.body;
-    customerDao.loginCustomer(loginCredentials,function(err, result){
+    customerDao.loginCustomer(loginCredentials,function(err, result){ 
       
       if(err){
          res.status(404);
