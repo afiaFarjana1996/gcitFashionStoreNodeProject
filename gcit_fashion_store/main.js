@@ -41,6 +41,8 @@ app.use(require('./controllers/orderDetailsController'));
 
 app.use(require('./controllers/healthController'));
 
+app.use(require('./controllers/upload'));
+
 module.exports = app.listen(3000);
 console.log('Server running in port: 3000 ...')
 
