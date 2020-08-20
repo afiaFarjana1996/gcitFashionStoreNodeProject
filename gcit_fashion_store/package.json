@@ -5,7 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "aws-sdk": "^2.595.0",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
